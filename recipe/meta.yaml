@@ -1,8 +1,8 @@
 {% set name = "dtool_http" %}
 {% set reponame = "dtool-http" %}
 {% set author = "jic-dtool" %}
-{% set version = "0.2.1" %}
-{% set sha256 = "ddbb6b3c01e37cd9588685edd31dbac978f2199e4c0e25cbeb90734b9b1a620c" %}
+{% set version = "0.5.0" %}
+{% set sha256 = "1088000e4f0f6300badec8597027540973a7353df4fdb6bfeccb602dce251cea" %}
 
 package:
   name: {{ name|lower }}
@@ -18,8 +18,8 @@ build:
   entry_points:
     - dtool_serve_directory = dtool_http.server:cli
     - dtool_publish_dataset = dtool_http.publish:cli
-  preserve_egg_dir: True
-  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  preserve_egg_dir: true
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   host:
@@ -46,7 +46,7 @@ about:
   home: http://github.com/{{ author }}/{{ reponame }}
   license: MIT
   license_file: LICENSE.rst
-  summary: 'HTTP support to dtool for read only access to datasets'
+  summary: HTTP support to dtool for read only access to datasets
 
   dev_url: https://github.com/{{ author }}/{{ reponame }}
 
