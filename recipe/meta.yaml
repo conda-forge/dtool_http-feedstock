@@ -29,7 +29,7 @@ requirements:
     - python >=3.6
     - click
     - setuptools
-    - dtoolcore
+    - dtoolcore >=3.17
     - requests
 
 test:
