@@ -1,8 +1,8 @@
 {% set name = "dtool_http" %}
 {% set reponame = "dtool-http" %}
 {% set author = "jic-dtool" %}
-{% set version = "0.5.0" %}
-{% set sha256 = "1088000e4f0f6300badec8597027540973a7353df4fdb6bfeccb602dce251cea" %}
+{% set version = "0.3.0" %}
+{% set sha256 = "0a9fa3c06d5eff89cd6c7587d90733aa3dde4cd1d0ed5bfb3e6c3522231c392e" %}
 
 package:
   name: {{ name|lower }}
@@ -13,7 +13,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 0
   noarch: python
   entry_points:
     - dtool_serve_directory = dtool_http.server:cli
