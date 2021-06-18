@@ -1,24 +1,20 @@
 {% set name = "dtool_http" %}
-{% set reponame = "dtool-http" %}
-{% set author = "jic-dtool" %}
 {% set version = "0.5.0" %}
-{% set sha256 = "1088000e4f0f6300badec8597027540973a7353df4fdb6bfeccb602dce251cea" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/{{ author }}/{{ reponame }}/archive/{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  url: https://pypi.io/packages/source/{{ name[0] }}/dtool-http/dtool-http-{{ version }}.tar.gz
+  sha256: "02f581435369252d53e8c283cd5d3726404c0bf1858a1ddebdf15cd8e9a58b8e"
 
 build:
-  number: 1
+  number: 2
   noarch: python
   entry_points:
     - dtool_serve_directory = dtool_http.server:cli
     - dtool_publish_dataset = dtool_http.publish:cli
-  preserve_egg_dir: true
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
@@ -46,12 +42,12 @@ test:
     - pip
 
 about:
-  home: http://github.com/{{ author }}/{{ reponame }}
+  home: https://github.com/jic-dtool/dtool-http
   license: MIT
   license_file: LICENSE.rst
   summary: HTTP support to dtool for read only access to datasets
-
-  dev_url: https://github.com/{{ author }}/{{ reponame }}
+  doc_url: https://github.com/jic-dtool/dtool-http
+  dev_url: https://github.com/jic-dtool/dtool-http
 
 extra:
   recipe-maintainers:

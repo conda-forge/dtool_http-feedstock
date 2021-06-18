@@ -1,7 +1,7 @@
 About dtool_http
 ================
 
-Home: http://github.com/jic-dtool/dtool-http
+Home: https://github.com/jic-dtool/dtool-http
 
 Package license: MIT
 
@@ -10,6 +10,8 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/dtool_http-feed
 Summary: HTTP support to dtool for read only access to datasets
 
 Development: https://github.com/jic-dtool/dtool-http
+
+Documentation: https://github.com/jic-dtool/dtool-http
 
 Current build status
 ====================
