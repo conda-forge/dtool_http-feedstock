@@ -10,7 +10,7 @@ source:
   sha256: "02f581435369252d53e8c283cd5d3726404c0bf1858a1ddebdf15cd8e9a58b8e"
 
 build:
-  number: 2
+  number: 3
   noarch: python
   entry_points:
     - dtool_serve_directory = dtool_http.server:cli
@@ -53,3 +53,4 @@ extra:
   recipe-maintainers:
     - pvanheus
     - jan-janssen
+    - tjelvar-olsson
