@@ -6,11 +6,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/dtool-http/dtool-http-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/dtool-http/dtool-http-{{ version }}.tar.gz
   sha256: 4f3950b82ff3d6823124ee3b3e0a328aac3043ec6e992bc2169db5debf96ed49
 
 build:
-  number: 0
+  number: 1
   noarch: python
   entry_points:
     - dtool_serve_directory = dtool_http.server:cli
@@ -19,10 +19,11 @@ build:
 
 requirements:
   host:
-    - python >=3.6
+    - python {{ python_min }}
     - pip
+    - setuptools
   run:
-    - python >=3.6
+    - python >={{ python_min }}
     - click
     - setuptools
     - dtoolcore >=3.17
@@ -40,6 +41,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/jic-dtool/dtool-http
