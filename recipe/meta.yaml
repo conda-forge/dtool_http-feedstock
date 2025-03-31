@@ -1,16 +1,16 @@
 {% set name = "dtool_http" %}
-{% set version = "0.5.1" %}
+{% set version = "0.5.2" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/dtool-http/dtool-http-{{ version }}.tar.gz
-  sha256: 4f3950b82ff3d6823124ee3b3e0a328aac3043ec6e992bc2169db5debf96ed49
+  url: https://pypi.org/packages/source/{{ name[0] }}/dtool-http/{{ name }}-{{ version }}.tar.gz
+  sha256: 656271bf48197b21bac776147182c7adbeb140f0145e69c4dcf8818baba621e6
 
 build:
-  number: 1
+  number: 0
   noarch: python
   entry_points:
     - dtool_serve_directory = dtool_http.server:cli
