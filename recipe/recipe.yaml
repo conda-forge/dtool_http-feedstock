@@ -1,0 +1,65 @@
+schema_version: 1
+
+context:
+  name: dtool_http
+  version: "0.5.2"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/dtool-http/${{ name }}-${{ version }}.tar.gz
+  sha256: 656271bf48197b21bac776147182c7adbeb140f0145e69c4dcf8818baba621e6
+
+build:
+  number: 1
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . --no-deps -vv
+  python:
+    entry_points:
+      - dtool_serve_directory = dtool_http.server:cli
+      - dtool_publish_dataset = dtool_http.publish:cli
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - pip
+    - setuptools
+  run:
+    - python >=${{ python_min }}
+    - click
+    - setuptools
+    - dtoolcore >=3.17
+    - requests
+
+tests:
+  - python:
+      imports:
+        - dtool_http
+        - dtool_http.server
+        - dtool_http.publish
+        - dtool_http.storagebroker
+      pip_check: true
+      python_version: ${{ python_min }}
+  - requirements:
+      run:
+        - pip
+        - python ${{ python_min }}.*
+    script:
+      - dtool_serve_directory --help
+      - dtool_publish_dataset --help
+
+about:
+  license: MIT
+  license_file: LICENSE.rst
+  summary: HTTP support to dtool for read only access to datasets
+  homepage: https://github.com/jic-dtool/dtool-http
+  repository: https://github.com/jic-dtool/dtool-http
+  documentation: https://github.com/jic-dtool/dtool-http
+
+extra:
+  recipe-maintainers:
+    - pvanheus
+    - jan-janssen
+    - tjelvar-olsson
