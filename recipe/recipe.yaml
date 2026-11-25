@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: dtool_http
-  version: "0.5.2"
+  version: "0.5.3"
 
 package:
   name: ${{ name|lower }}
@@ -10,10 +10,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/dtool-http/${{ name }}-${{ version }}.tar.gz
-  sha256: 656271bf48197b21bac776147182c7adbeb140f0145e69c4dcf8818baba621e6
+  sha256: 7d65e9089ce0c878a9fb4a56137e987979901a2514a0e205e3aad73582be13ae
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   python:
@@ -25,7 +25,8 @@ requirements:
   host:
     - python ${{ python_min }}.*
     - pip
-    - setuptools
+    - hatchling
+    - hatch-vcs
   run:
     - python >=${{ python_min }}
     - click
